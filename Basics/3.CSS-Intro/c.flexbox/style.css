@@ -1,0 +1,39 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+#parent {
+  /* flex container */
+  border: solid red 10px;
+  display: flex;
+  /* width: 1000px; */
+  height: 500px;
+  flex-direction: row;
+  flex-flow: row wrap;
+  justify-content: start; /*to arrange elements on main axix */
+  align-items: center; /*to arrange elements on cross axis*/
+  align-content: start; /*to arrange elements on cross axis*/
+}
+
+#parent div {
+  /* flex items */
+  border: solid blue 2px;
+  padding: 20px;
+  background-color: bisque;
+  max-width: 100px;
+  max-height: 200px;
+}
+
+#child1 {
+  flex-grow: 100%;
+}
+
+#child2 {
+  flex-grow: 1;
+}

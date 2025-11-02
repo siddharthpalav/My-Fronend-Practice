@@ -1,0 +1,41 @@
+* {
+  /* This is the universal selector, whatevver you write here is applied dto everything */
+  background-color: #736666;
+}
+
+/* header {
+  background-color: #592222;
+} */
+
+/* div {
+  background-color: white;
+} */
+
+.mid-text {
+  font-weight: bolder;
+  font-size: medium;
+}
+
+#head-text {
+  text-decoration-line: overline;
+}
+
+div span {
+  color: cadetblue;
+}
+
+div > .extra {
+  text-decoration-line: underline;
+}
+
+h2 ~ h4 {
+  color: chocolate;
+}
+
+div::before {
+  content: "...";
+}
+
+div::after {
+  content: "...";
+}

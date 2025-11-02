@@ -1,0 +1,85 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.first-image {
+  background-image: url("img/1.jpeg");
+  min-height: 400px;
+  opacity: 0.8;
+}
+
+.second-image {
+  background-image: url("img/2.jpeg");
+  min-height: 400px;
+  opacity: 0.5;
+}
+
+.third-image {
+  background-image: url("img/3.jpeg");
+  min-height: 400px;
+  opacity: 0.5;
+}
+
+.fourth-image {
+  background-image: url("img/1.jpeg");
+  min-height: 400px;
+  opacity: 0.8;
+}
+
+.first-image,
+.second-image,
+.third-image,
+.fourth-image {
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+section {
+  text-align: center;
+  padding: 3rem 5rem;
+}
+
+.section-light {
+  background-color: #0f0f0f;
+  color: white;
+}
+
+.section-dark {
+  background-color: #282e34;
+  color: #ddd;
+}
+
+.image {
+  /* display: flex;
+  justify-content: center;
+  align-items: center;
+*/
+  position: relative;
+}
+
+.image div {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-size: 30px;
+  letter-spacing: 8px;
+  text-transform: uppercase;
+}
+
+.second-image {
+  color: black;
+}

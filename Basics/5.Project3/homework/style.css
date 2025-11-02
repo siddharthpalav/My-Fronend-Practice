@@ -1,0 +1,14 @@
+#linkedin-card {
+  display: flex;
+  flex-direction: row;
+  width: 600px;
+  height: 600px;
+  background-color: beige;
+  justify-content: space-evenly;
+  align-items: top;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+}
