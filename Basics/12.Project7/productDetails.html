@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Details</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/productDetails.css" />
+  </head>
+  <body>
+    <div id="productDetailsPage">
+      <!-- header -->
+      <nav id="header">
+        <div class="container">
+          <div class="row">
+            <div class="header-wrapper d-flex justify-content-between">
+              <!-- we have made this div flex, with justify content as space justify-content-between -->
+              <div class="logo d-inline-block">
+                <a href="index.html" class="text-decoration-none">Shop Cart</a>
+              </div>
+              <div class="user-actions d-flex flex-row">
+                <a href="cart.html">Cart</a>
+                <div class="user-intro" id="userIntro">Hi User</div>
+                <div class="logout-btn" id="logooutBtn">Logout</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <div class="container">
+        <div class="row">
+          <div class="product-details-wrapper d-flex flex-row">
+            <div class="product-img d-flex">
+              <img src="img/product.jpg" alt="" />
+            </div>
+            <div
+              class="product-details-box d-flex justify-content-between align-items-start flex-column"
+            >
+              <div id="productDetails">
+                <!-- TODO: fill the product details -->
+
+                <div class="product-name">Some product</div>
+                <div class="product-price fw-bold">&#8377; 10000</div>
+                <div class="product-description">
+                  <div class="product-description-title fw-bold">
+                    Description
+                  </div>
+                  <div class="product-description-title">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                    Vero rem ut sapiente sequi in vitae odio dolorum voluptatem
+                    unde quas harum rerum quia, cum quis.
+                  </div>
+                </div>
+                <div
+                  class="product-details-action btn btn-primary text-decoration-none"
+                >
+                  Add to cart
+                </div>
+                <a
+                  href="cart.html"
+                  class="product-details-action btn btn-warning text-decoration-none"
+                  >Go to cart</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
