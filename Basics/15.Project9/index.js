@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   let table = document.getElementById("ping-pong-table");
-  let ball = document.getElementById("ball"); // targettign the ball element
+  let ball = document.getElementById("ball"); // targetting the ball element
+  let paddle = document.getElementById("paddle"); // targetting the paddle element
 
   // here the ballX and ballY will be helping us to set a starting poin of the ball w.r.t table
   let ballX = 50; // distance of the top of the ball w.r.t ping pong table
@@ -24,5 +25,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (ballX > table.offsetWidth - ball.offsetWidth || ballX <= 0) dx *= -1; // change x-direction
     if (ballY > table.offsetHeight - ball.offsetHeight || ballY <= 0) dy *= -1; // change y-direction
+
+    let paddleY = 0;
+    let dPy = 5; // displacement for paddle in y-direction
+    document.addEventListener("keydown", (event) => {
+      if (event.keyCode == 38) {
+        // up arrow
+        paddleY += -1 * dPy;
+      } else if (event.keycode == 40) {
+        // down arrow
+        paddleY += dPy;
+      }
+      paddle.style.top = `${paddleY}px`;
+    });
   }, 1);
 });
