@@ -11,6 +11,8 @@ async function populateCategories() {
   const categories = await fetchCategories();
   const categoryList = document.getElementById("categoryList");
 
+  // console.log("cate", categories);
+
   categories.forEach((category) => {
     const categoryHolder = document.createElement("div");
     const categoryLink = document.createElement("a");
