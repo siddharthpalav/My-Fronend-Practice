@@ -5,8 +5,11 @@ document.addEventListener("DOMContentLoaded", () => {
     return response.data;
   }
 
-  async function populateProducts() {
-    const products = await fetchProducts();
+  async function populateProducts(flag, customProduct) {
+    let products = await fetchProducts();
+    if (flag) {
+      products = customProduct;
+    }
     const productList = document.getElementById("productList");
     products.forEach((product) => {
       const productItem = document.createElement("a");
@@ -43,4 +46,22 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   populateProducts();
+
+  const filterSearch = document.getElementById("search");
+  filterSearch.addEventListener("click", async () => {
+    const productList = document.getElementById("productList");
+    const minPrice = Number(document.getElementById("minPrice").value);
+    const maxPrice = Number(document.getElementById("maxPrice").value);
+    const products = await fetchProducts();
+    const filteredProducts = products.filter(
+      (product) => product.price >= minPrice && product.price <= maxPrice
+    );
+    productList.innerHTML = "";
+    populateProducts(true, filteredProducts);
+  });
+
+  const resetFilter = document.getElementById("clear");
+  resetFilter.addEventListener("click", () => {
+    window.location.reload();
+  });
 });
