@@ -1,15 +1,36 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
   async function fetchProducts() {
     const response = await axios("https://fakestoreapi.com/products");
     console.log(response);
     return response.data;
   }
 
+  async function fetchProductsByCategory(category) {
+    const response = await axios(
+      `https://fakestoreapi.com/products/category/${category}`
+    );
+    console.log("category specific", response.data);
+    return response.data;
+  }
+
+  const downloadedProducts = await fetchProducts();
+
   async function populateProducts(flag, customProduct) {
-    let products = await fetchProducts();
-    if (flag) {
-      products = customProduct;
+    let products = customProduct;
+
+    const queryParams = new URLSearchParams(window.location.search);
+    const queryParamsObject = Object.fromEntries(queryParams.entries());
+
+    console.log(queryParamsObject);
+
+    if (flag === false) {
+      if (queryParamsObject["category"]) {
+        products = await fetchProductsByCategory(queryParamsObject["category"]);
+      } else {
+        products = downloadedProducts;
+      }
     }
+
     const productList = document.getElementById("productList");
     products.forEach((product) => {
       const productItem = document.createElement("a");
@@ -30,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
       productPrice.classList.add("product-price", "text-center");
 
       productName.textContent = product.title.substring(0, 12) + "...";
-      productPrice.textContent = `&#8377; ${product.price}`;
+      productPrice.innerHTML = `&#x24; ${product.price}`;
 
       const imageInsideProductImage = document.createElement("img");
       imageInsideProductImage.src = product.image;
@@ -45,14 +66,14 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  populateProducts();
+  populateProducts(false);
 
   const filterSearch = document.getElementById("search");
   filterSearch.addEventListener("click", async () => {
     const productList = document.getElementById("productList");
     const minPrice = Number(document.getElementById("minPrice").value);
     const maxPrice = Number(document.getElementById("maxPrice").value);
-    const products = await fetchProducts();
+    const products = downloadedProducts;
     const filteredProducts = products.filter(
       (product) => product.price >= minPrice && product.price <= maxPrice
     );
