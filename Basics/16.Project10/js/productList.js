@@ -67,19 +67,32 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   async function populateCategories() {
-    const categories = await fetchCategories();
+    const categories = await fetchProductsByCategory();
+    // const loaderBackdrop = document.getElementById('loader-backdrop')
     const categoryList = document.getElementById("categoryList");
     categories.forEach((category) => {
+      // const categoryHolder = document.createElement("div");
       const categoryLink = document.createElement("a");
       categoryLink.classList.add("d-flex", "text-decoration-none");
-      categoryLink.textContent = category;
       categoryLink.href = `productList.html?category/${category}`;
+      categoryLink.textContent = category;
+      // categoryHolder.classList.add('category-item', 'd-flex', 'align-items-center', 'justify-content-center')
+      // categoryHolder.appendChild(categoryLink);
+      // categoryList.appendChild(categoryHolder);
       categoryList.appendChild(categoryLink);
     });
   }
 
-  populateProducts(false);
-  populateCategories();
+  async function downloadContentAndPopulate() {
+    Promise.all([populateProducts(false), populateCategories()]).then(() => {
+      // await populateProducts(false);
+      // await populateCategories();
+      const loaderBackdrop = document.getElementById("loader-backdrop");
+      loaderBackdrop.style.display = "none";
+    });
+  }
+
+  downloadContentAndPopulate();
 
   const filterSearch = document.getElementById("search");
   filterSearch.addEventListener("click", async () => {
