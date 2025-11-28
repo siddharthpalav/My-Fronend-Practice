@@ -18,8 +18,9 @@ document.addEventListener("DOMContentLoaded", async () => {
   async function populateProducts(flag, customProduct) {
     let products = customProduct;
 
-    const queryParams = new URLSearchParams(window.location.search);
-    const queryParamsObject = Object.fromEntries(queryParams.entries());
+    // const queryParams = new URLSearchParams(window.location.search);
+    // const queryParamsObject = Object.fromEntries(queryParams.entries());
+    const queryParamsObject = getQueryParams();
 
     console.log(queryParamsObject);
 
@@ -40,7 +41,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         "text-decoration-none",
         "d-inline-block"
       );
-      productItem.href = "productDetails.html";
+      productItem.href = `productDetails.html?id=${product.id}`;
 
       const productImage = document.createElement("div");
       const productName = document.createElement("div");
@@ -87,8 +88,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     Promise.all([populateProducts(false), populateCategories()]).then(() => {
       // await populateProducts(false);
       // await populateCategories();
-      const loaderBackdrop = document.getElementById("loader-backdrop");
-      loaderBackdrop.style.display = "none";
+      // const loaderBackdrop = document.getElementById("loader-backdrop");
+      // loaderBackdrop.style.display = "none";
+      removeLoader();
     });
   }
 
