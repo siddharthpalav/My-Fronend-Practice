@@ -1,0 +1,26 @@
+body {
+  background-color: black;
+  color: white;
+}
+
+#outer {
+  width: 600px;
+  height: 600px;
+  padding: 5px;
+  border: 1px solid white;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.inner {
+  border: 1px solid red;
+  width: 180px;
+  height: 180px;
+  flex-basis: 33%;
+  font-size: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
