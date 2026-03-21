@@ -1,0 +1,7 @@
+.todo {
+  text-decoration: line-through;
+}
+
+.todo-notdone {
+  color: white;
+}
